@@ -1,0 +1,35 @@
+/* Comments sit on the grey page colour, inside the white content column */
+.comments {
+  background: var(--page-bg);
+  border-top: 1px solid #000;
+  padding: var(--space);
+}
+
+.comments h2 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+}
+
+.comments__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comment {
+  max-width: 30rem; /* keeps lines short and readable */
+}
+
+.comment__user {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.comment p {
+  margin: 0;
+  line-height: 1.6;
+}

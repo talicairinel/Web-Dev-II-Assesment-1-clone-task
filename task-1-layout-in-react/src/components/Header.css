@@ -1,0 +1,22 @@
+/* Stack logo and nav in a centred column, using the standard 50px spacing. */
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space);
+  padding-top: var(--space);
+  padding-bottom: var(--space);
+}
+
+/* Spec: logo is 200px wide */
+.site-header__logo {
+  width: 200px;
+  height: auto;
+}
+
+/* Match the content column width so the nav lines up with the article */
+.site-header__nav {
+  width: 100%;
+  max-width: var(--content-width);
+  padding-inline: var(--space);
+}

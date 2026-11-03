@@ -1,0 +1,22 @@
+/* ---- Mobile: one column of cards ---- */
+.movie-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-large);
+  /* content-box so the 900px maximum applies to the cards, not the padding */
+  box-sizing: content-box;
+  max-width: 900px;
+  margin-inline: auto;
+  padding: var(--space-large) 0;
+}
+
+/* ---- Tablet: two columns, large spacing all round ---- */
+@media (min-width: 720px) {
+  .movie-list {
+    grid-template-columns: repeat(2, 1fr);
+    padding: var(--space-large);
+  }
+}
+
+/* Desktop layout (featured / tall / wide cards) is defined in MovieCard.css
+   because it depends on each card's layout modifier class. */

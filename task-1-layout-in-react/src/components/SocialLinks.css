@@ -1,0 +1,32 @@
+.social-links {
+  display: flex;
+  gap: 10px; /* spec: 10px between social icons */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social-links--column {
+  flex-direction: column;
+}
+
+.social-links--row {
+  flex-direction: row;
+}
+
+.social-links a {
+  display: block;
+}
+
+/* Spec: icons are 50px wide */
+.social-links img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* The supplied Twitter icon is white: turn it black on light backgrounds */
+.social-links--on-light .social-links__icon--white {
+  filter: invert(1);
+}

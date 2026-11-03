@@ -1,0 +1,33 @@
+/* 3 columns: the featured album takes 2 of them (2fr) and the small albums 1fr each. */
+.album-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  /* Thin divider lines between tiles, as in the wireframe */
+  gap: 1px;
+  background: #000;
+  border-block: 1px solid #000;
+}
+
+/* Every tile is a square, cropped to fit if necessary */
+.album-gallery__item {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* The featured album spans both rows */
+.album-gallery__item--featured {
+  grid-row: span 2;
+}
+
+/* On small screens the featured album goes full width above the 2x2 block */
+@media (max-width: 560px) {
+  .album-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+  .album-gallery__item--featured {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}

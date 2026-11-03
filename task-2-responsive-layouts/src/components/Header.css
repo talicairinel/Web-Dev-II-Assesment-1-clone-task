@@ -1,0 +1,58 @@
+/* ---- Mobile first: logo on the left, search on the right ---- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-large);
+  padding: var(--space-small);
+  background: var(--black);
+  color: var(--white);
+  border-bottom: 4px solid var(--teal);
+}
+
+/* Spec: logo is 2em on mobile (3em from tablet up) */
+.site-header__logo {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 2em;
+  line-height: 1;
+  color: var(--yellow);
+}
+
+/* The genre links are not shown on mobile */
+.site-header__nav {
+  display: none;
+}
+
+.site-header__nav ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-large); /* spec: large spacing between nav options */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header__nav a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.site-header__nav a:hover,
+.site-header__nav a:focus-visible {
+  color: var(--teal);
+  text-decoration: underline;
+}
+
+/* ---- Tablet and up: nav appears between logo and search ---- */
+@media (min-width: 720px) {
+  .site-header__logo {
+    font-size: 3em;
+  }
+
+  .site-header__nav {
+    display: block;
+    flex: 1; /* take the free space so the links sit centred */
+  }
+}

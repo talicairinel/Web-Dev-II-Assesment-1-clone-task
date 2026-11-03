@@ -1,0 +1,83 @@
+.article {
+  padding: var(--space);
+}
+
+/* ---- Title block ---- */
+.article__title {
+  /* "Much larger" than other headings,scales down on small screens */
+  font-size: clamp(3.25rem, 12vw, 7rem);
+  line-height: 1;
+  margin: 0 0 0.25em;
+}
+
+/* Subtitle sits on its own line at the regular heading size */
+.article__subtitle {
+  display: block;
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-top: 0.15em;
+}
+
+/* ---- Intro paragraph ---- */
+.article__intro {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0 0 var(--space);
+}
+
+/* ---- Three-column body text ---- */
+.article__columns {
+  column-count: 3;
+  column-gap: 2rem;
+}
+
+/* Remove the section wrappers' effect on column flow */
+.article__columns section {
+  display: contents;
+}
+
+.article__columns h2 {
+  font-size: 3rem; /* three times the default 16px font size */
+  line-height: 1.1;
+  margin: 0 0 0.5em;
+  /* Never leave a heading stranded at the bottom of a column */
+  break-after: avoid;
+}
+
+/* Headings that are not at the very top of a column need space above them */
+.article__columns section + section h2,
+.article__columns p + h2 {
+  margin-top: 1em;
+}
+
+.article__columns p {
+  margin: 0 0 1.25em;
+  line-height: 1.65;
+  font-size: 1.1rem;
+  /* Keep each paragraph readable */
+  orphans: 3;
+  widows: 3;
+}
+
+/* ---- Media queries, fewer columns on narrower screens ---- */
+@media (max-width: 800px) {
+  .article__columns {
+    column-count: 2;
+  }
+  .article__subtitle,
+  .article__columns h2 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .article {
+    padding: 1.5rem;
+  }
+  .article__columns {
+    column-count: 1;
+  }
+  .article__intro {
+    font-size: 1.25rem;
+  }
+}

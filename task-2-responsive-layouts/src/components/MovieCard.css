@@ -1,0 +1,107 @@
+/* 
+   Base card = "tall" layout (used on mobile and tablet, and for cards 2-3 on
+   desktop): poster on top, then text, with the button pinned to the bottom.
+    */
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  color: var(--black);
+  border: 2px solid var(--black);
+  font-size: 1.5em; /* spec: card text is 1.5em */
+  /* Hard offset shadow (bottom only on mobile) */
+  box-shadow: 0 8px 0 var(--teal);
+}
+
+.movie-card__poster {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1; /* posters are square */
+  object-fit: cover;
+  border-bottom: 2px solid var(--black);
+}
+
+/* Body: text grows to fill the card so every button lines up at the bottom */
+.movie-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--space-small); /* spec: cards use small spacing */
+  padding: var(--space-small);
+}
+
+.movie-card__text {
+  flex: 1;
+}
+
+.movie-card__title {
+  margin: 0 0 0.25em;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.25em;
+  line-height: 1.1;
+}
+
+.movie-card__text p {
+  margin: 0;
+  line-height: 1.35;
+  font-size: 0.8em; /* keeps long descriptions compact (24px x 0.8 = ~19px) */
+}
+
+/* The shared Button already sets its own 2em size; make it fill the width */
+.movie-card__button {
+  width: 100%;
+}
+
+/* ---- Tablet and up: full offset shadow ---- */
+@media (min-width: 720px) {
+  .movie-card {
+    box-shadow: 8px 8px 0 var(--teal);
+  }
+}
+
+/* 
+   Desktop (1024px+): cards use different layouts, on a two-column grid.
+   */
+@media (min-width: 1024px) {
+  /* "featured" and "wide" cards span both grid columns; "tall" cards take one */
+  .movie-card--featured,
+  .movie-card--wide {
+    grid-column: 1 / -1;
+  }
+
+  /* --- Featured: wide banner poster, text left, button right --- */
+  .movie-card--featured .movie-card__poster {
+    aspect-ratio: 3 / 1;
+    object-position: center 25%; /* keep the title/faces in the cropped banner */
+  }
+
+  .movie-card--featured .movie-card__body {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  /* Button becomes a fixed-width block at the right of the text */
+  .movie-card--featured .movie-card__button {
+    flex: 0 0 30%;
+    width: auto;
+  }
+
+  /* --- Wide: poster on the left half, text and button on the right half --- */
+  .movie-card--wide {
+    flex-direction: row;
+  }
+
+  .movie-card--wide .movie-card__poster {
+    flex: 0 0 50%;
+    width: 50%;
+    height: auto;
+    aspect-ratio: auto; /* stretch to the height of the text column */
+    border-bottom: 0;
+    border-right: 2px solid var(--black);
+  }
+
+  .movie-card--wide .movie-card__body {
+    flex: 1;
+  }
+}

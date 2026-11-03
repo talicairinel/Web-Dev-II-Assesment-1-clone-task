@@ -1,0 +1,47 @@
+/* Text, photo and icons sit side by side, vertically centred. */
+.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space);
+  padding: var(--space);
+}
+
+/* The text block takes the remaining space and the heading is centred above it */
+.author__text {
+  flex: 1 1 0;
+  max-width: 28rem;
+}
+
+.author__text h2 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin: 0 0 0.4em;
+  text-align: center;
+}
+
+.author__text p {
+  margin: 0;
+  line-height: 1.65;
+  font-size: 1.1rem;
+}
+
+/* Spec: author photo is 200px wide; circular crop  */
+.author__photo {
+  flex: none;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Stack everything vertically on small screens */
+@media (max-width: 700px) {
+  .author {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .author__text {
+    max-width: none;
+  }
+}

@@ -1,0 +1,18 @@
+/* Centred column, full page width, with standard 50px spacing between rows. */
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space);
+  padding: var(--space);
+  background: var(--footer-bg);
+  color: #fff;
+}
+
+.site-footer__nav {
+  width: 100%;
+}
+
+.site-footer__copyright {
+  margin: 0;
+}

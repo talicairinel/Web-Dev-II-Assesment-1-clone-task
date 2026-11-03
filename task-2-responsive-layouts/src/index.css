@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Global styles & design tokens
+   ========================================================================== */
+:root {
+  /* watch.it brand colours */
+  --black: #070410;
+  --purple: #231651;
+  --teal: #4dccbd;
+  --yellow: #eef36a;
+  --white: #ffffff;
+
+  /* Spec: headings and buttons use Teko; everything else uses Lato */
+  --font-heading: 'Teko', sans-serif;
+  --font-body: 'Lato', sans-serif;
+
+  /* Spec: standard spacing. "Small" is constant, "large" grows with the screen. */
+  --space-small: 16px;
+  --space-large: 16px; /* mobile (360px - 720px) */
+}
+
+/* Tablet breakpoint: 720px */
+@media (min-width: 720px) {
+  :root {
+    --space-large: 32px;
+  }
+}
+
+/* Desktop breakpoint: 1024px */
+@media (min-width: 1024px) {
+  :root {
+    --space-large: 48px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 360px; /* smallest supported viewport */
+  background: var(--purple);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}

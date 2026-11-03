@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Global styles & design tokens
+   ========================================================================== */
+:root {
+  --page-bg: #e9e9e9;        /*  page background */
+  --content-bg: #fff;        /*  content background */
+  --footer-bg: #14181d;      /* footer background */
+  --space: 50px;             /*  standard spacing between elements */
+  --content-width: 900px;    /* max width of the white content column */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: #111;
+  /*  all non-heading text uses Josefin Sans */
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1rem;
+}
+
+/*  headings use Protest Guerrilla */
+h1,
+h2,
+h3 {
+  font-family: 'Protest Guerrilla', 'Josefin Sans', sans-serif;
+  font-weight: 400;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* The white content column centred with a thin outline  */
+.content {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  background: var(--content-bg);
+  border: 1px solid #000;
+  border-bottom: 0;
+}
+
+/* Smaller screens: reduce the spacing unit so content isn't cramped */
+@media (max-width: 560px) {
+  :root {
+    --space: 24px;
+  }
+}

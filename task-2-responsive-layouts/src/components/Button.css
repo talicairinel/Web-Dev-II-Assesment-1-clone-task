@@ -1,0 +1,36 @@
+/* Spec: buttons use Teko, 2em text, and "small" spacing + border radius. */
+.btn {
+  font-family: var(--font-heading);
+  font-size: 2em;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: var(--space-small);
+  border: 2px solid var(--black);
+  border-radius: var(--space-small);
+  background: var(--yellow);
+  color: var(--black);
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.15s;
+}
+
+.btn:hover {
+  background: var(--teal);
+}
+
+.btn:active {
+  transform: translateY(2px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 2px;
+}
+
+/* The header search button uses the teal brand colour to stand apart */
+.btn--search {
+  background: var(--teal);
+}
+
+.btn--search:hover {
+  background: var(--yellow);
+}
