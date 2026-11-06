@@ -3,7 +3,7 @@ import './SocialLinks.css';
 
 /**
  * Row/column of social media icon links.
- * The supplied Twitter icon is white, so on light backgrounds it is inverted to black.
+ * The Twitter icon is white, so on light backgrounds it is inverted to black.
  */
 export default function SocialLinks({ direction = 'column', onDark = false }) {
   const classes = [
